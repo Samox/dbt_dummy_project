@@ -1,0 +1,11 @@
+dbt_dummy_project:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      port: 5432
+      user: sammyteillet
+      password: ""
+      dbname: dbt-dummy-project
+      schema: public
