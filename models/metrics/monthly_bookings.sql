@@ -2,13 +2,14 @@
     config(
         meta={
             "datadrift":true,
-            "history_retention_period":"1 year",
+            "datadrift_unique_key":"month",
+            "datadrift_date":"month",
         }
     )
 }}
 
 SELECT 
-    date_trunc('month', to_date(date, 'YYYY-MM-DD')) AS month,
+    date_trunc('month', to_date(date, 'YYYY-MM-DD'))::DATE AS month,
     SUM(metric_value) AS monthly_metric
 FROM {{ source('bookings', 'source_bookings') }}
 GROUP BY month
