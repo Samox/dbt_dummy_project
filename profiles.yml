@@ -5,7 +5,7 @@ dbt_dummy_project:
       type: postgres
       host: localhost
       port: 5432
-      user: sammyteillet
+      user: lucasdevries
       password: ""
       dbname: dbt-dummy-project
       schema: public
