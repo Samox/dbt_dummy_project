@@ -9,8 +9,8 @@
 }}
 
 SELECT 
-    date_trunc('month', booking_date) AS month,
-    SUM(metric_value) AS monthly_booking_value
+    date_trunc('month', booking_date)::DATE AS month,
+    ROUND(SUM(metric_value),2) AS monthly_booking_value
 FROM {{ref('bookings')}}
 GROUP BY month
 ORDER BY month

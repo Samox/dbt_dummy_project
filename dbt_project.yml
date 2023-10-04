@@ -30,5 +30,7 @@ clean-targets: # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   dbt_dummy_project:
+    mart:
+      +materialized: table
     metrics:
       +materialized: table
