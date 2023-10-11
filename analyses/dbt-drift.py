@@ -1,3 +1,4 @@
+import json
 import dbt
 from dbt.cli.main import dbtRunner
 from dbt.config.runtime import load_profile, load_project, RuntimeConfig
@@ -11,7 +12,7 @@ from github import Github
 import argparse
 
 # Create an argument parser
-parser = argparse.ArgumentParser(description='Run dbt-drift.py with parameters')
+parser = argparse.ArgumentParser(  description='Run dbt-drift.py with parameters')
 
 # Add the token argument
 parser.add_argument('--token', type=str, help='GitHub personal access token')
@@ -26,7 +27,7 @@ args = parser.parse_args()
 gh_token = args.token
 gh_repo = args.repo
 
-project_path='.'
+project_path = '.'
 dbtRunner().invoke(["-q", "debug"], project_dir=str(project_path))
 profile = load_profile(str(project_path), {})
 project = load_project(str(project_path), version_check=False, profile=profile)
@@ -35,7 +36,6 @@ runtime_config = RuntimeConfig.from_parts(project, profile, {})
 
 adapter = get_adapter(runtime_config)
 
-import json
 
 with open(f"{project_path}/target/manifest.json") as manifest_file:
     manifest = json.load(manifest_file)
