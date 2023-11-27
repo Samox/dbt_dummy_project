@@ -1,5 +1,7 @@
 
 target/
+edr_target/
+
 dbt_packages/
 logs/
 .env

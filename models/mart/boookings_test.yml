@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: bookings
+    description: This table contains all bookings.
+    columns:
+      - name: unique_key
+        tests:
+          - unique
+          - not_null
+      - name: booking_date
+        tests:
+          - not_null
+      - name: metric_value
+        tests:
+          - greater_than_or_equal_to:
+              value: 0
+      - name: created_at
+        tests:
+          - not_null
+      - name: updated_at
+        tests:
+          - not_null

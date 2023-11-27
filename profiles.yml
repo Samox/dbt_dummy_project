@@ -9,3 +9,15 @@ dbt_dummy_project:
       password: ""
       dbname: dbt-dummy-project
       schema: public
+
+elementary:
+  outputs:
+    default:
+      type: "postgres"
+      host: "localhost"
+      port: 5432
+      user: "sammyteillet"
+      password: "<PASSWORD>"
+      dbname: "dbt-dummy-project"
+      schema: "public_elementary"
+      threads: 1
