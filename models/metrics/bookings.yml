@@ -1,0 +1,20 @@
+metrics:
+  - name: booking_total
+    description: Sum of total booking amount. Includes tax + revenue.
+    type: simple
+    label: booking Total
+    type_params:
+      measure: booking_total
+  - name: booking_count
+    description: Number of bookings.
+    type: simple
+    label: booking Count
+    type_params:
+      measure: booking_count
+  - name: mean_booking_total
+    description: Mean of total booking amount. Includes tax + revenue.
+    type: ratio
+    label: Mean booking Total
+    type_params:
+      numerator: booking_total
+      denominator: booking_count

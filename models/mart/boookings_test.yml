@@ -4,7 +4,7 @@ models:
   - name: bookings
     description: This table contains all bookings.
     columns:
-      - name: unique_key
+      - name: booking_id
         tests:
           - unique
           - not_null

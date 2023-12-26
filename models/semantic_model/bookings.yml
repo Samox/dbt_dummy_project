@@ -1,0 +1,27 @@
+semantic_models:
+  - name: bookings
+    defaults:
+      agg_time_dimension: booking_date
+    description: |
+      Booking fact table. This table is at the booking grain with one row per booking.
+    #The name of the dbt model and schema
+    model: ref('bookings')
+    entities:
+      - name: booking_id
+        type: primary
+    measures:
+      - name: booking_total
+        description: The total revenue for each booking.
+        expr: metric_value
+        agg: sum
+      - name: booking_count
+        expr: 1
+        agg: sum
+    dimensions:
+      - name: country_code
+        type: categorical
+        expr: country_code
+      - name: booking_date
+        type: time
+        type_params:
+          time_granularity: day
